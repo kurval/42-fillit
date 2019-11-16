@@ -26,13 +26,13 @@ int main(int argc, char **argv)
 	{
 		if(!(fd = open(argv[1], O_RDONLY)))
 			return (0);
-		if (check_file(fd, blocks) != NULL)
+		if (check_file(fd, blocks) != 0)
 			printf("\n\nKaikki palikat kunnossa\n\n");
 		else
 			printf("\n\nValidation failed !\n\n");
 		while (blocks[i] != 0)
 		{
-			printf("%s\n", blocks[i]);
+			printf("%d: %s\n", i, blocks[i]);
 			i++;
 		}
 	}

@@ -110,7 +110,7 @@ int	check_lines(char **str, char *line, int fd, int n)
 ** string array of valid blocks
 */
 
-char	**check_file(int fd, char **blocks)
+int	check_file(int fd, char **blocks)
 {
 	char	*line;
 	int	value;
@@ -121,19 +121,19 @@ char	**check_file(int fd, char **blocks)
 	value = 1;
 	n = 0;
 	if (!(str = ft_strnew(1)))
-		return (NULL);
+		return (0);
 	while (value == 1)
 	{
 		if (check_lines(&str, line, fd, n) != 1)
-			return (NULL);
+			return (0);
 		value = get_next_line(fd, &line);
 		if (!(ft_strlen(line) == 0) || check_block_chars(str) == 0 || !(temp = ft_strdup(str)))
-			return (NULL);
+			return (0);
 		blocks[n++] = temp;
 		ft_strclr(str);
 
 	}
 	blocks[n] = 0;
 	ft_strdel(&str);
-	return (blocks);
+	return (1);
 }
