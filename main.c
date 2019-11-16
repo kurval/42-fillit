@@ -16,16 +16,25 @@ int main(int argc, char **argv)
 {
 	t_trm	arr_tetriminos[MAX];
 	int		fd;
+	char	*blocks[27];
+	int i;
 
+	i = 0;
 	if (argc != 2)
 		printf("Invalid input");
 	if (argc == 2)
 	{
-		fd = open(argv[1], O_RDONLY);
-		if (check_file(fd) == 1)
+		if(!(fd = open(argv[1], O_RDONLY)))
+			return (0);
+		if (check_file(fd, blocks) != NULL)
 			printf("\n\nKaikki palikat kunnossa\n\n");
 		else
 			printf("\n\nValidation failed !\n\n");
+		while (blocks[i] != 0)
+		{
+			printf("%s\n", blocks[i]);
+			i++;
+		}
 	}
 	return (0);
 }

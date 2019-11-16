@@ -29,8 +29,8 @@ typedef struct	s_trm
 
 int				check_block_shape(char *str);
 int				check_block_chars(char *str);
-int				check_lines(int fd, char *str);
-int				check_file(int fd);
+char				**check_file(int fd, char **blocks);
+int				check_lines(char **str, char *line, int fd, int n);
 int				struct_creator(char *str, int block_count);
 void			struct_creator_two(char *str, int i, char kirjain);
 

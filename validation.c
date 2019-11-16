@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 /*
 ** Cheks if tetrimino is right shape an returns 6 or 8.
@@ -75,7 +76,6 @@ int	check_block_chars(char *str)
 		check_block_shape(str);
 		if (check_block_shape(str) != 8 && check_block_shape(str) != 6)
 			return (0);
-		struct_creator(str, block_count);
 		return (1);
 	}
 	return (0);
@@ -83,44 +83,57 @@ int	check_block_chars(char *str)
 
 /*
 ** Checks that rows are valid and creates a string from one block.
+** This function also checks that block max is 26
 */
 
-int	check_lines(int fd, char *str)
-{
-	char	*line;
-	int		count;
-	int		value;
+int	check_lines(char **str, char *line, int fd, int n)
+{	
+	int	count;
 
 	count = 0;
-	value = 1;
-	while (value == 1)
+	if (n == 26)
+		return (0);
+	while (count++ < 4)
 	{
-		while (count++ < 4)
-		{
-			get_next_line(fd, &line);
-			if (ft_strlen(line) != 4)
-				return (0);
-			if (!(str = ft_strjoin(str, line)))
-				return (0);
-		}
-		value = get_next_line(fd, &line);
-		if (!(ft_strlen(line) == 0) || check_block_chars(str) == 0)
+		if (!(get_next_line(fd, &line)))
 			return (0);
-		count = 0;
-		ft_strclr(str);
+		if (ft_strlen(line) != 4)
+			return (0);
+		if (!(*str = ft_strjoin(*str, line)))
+			return (0);
 	}
-	ft_strdel(&str);
 	return (1);
 }
 
-int	check_file(int fd)
-{
-	char	*str;
+/*
+** This function checks that block are valid and create
+** string array of valid blocks
+*/
 
+char	**check_file(int fd, char **blocks)
+{
+	char	*line;
+	int	value;
+	char	*str;
+	char 	*temp;
+	int	n;
+
+	value = 1;
+	n = 0;
 	if (!(str = ft_strnew(1)))
-		return (0);
-	if (check_lines(fd, str))
-		return (1);
-	else
-		return (0);
+		return (NULL);
+	while (value == 1)
+	{
+		if (check_lines(&str, line, fd, n) != 1)
+			return (NULL);
+		value = get_next_line(fd, &line);
+		if (!(ft_strlen(line) == 0) || check_block_chars(str) == 0 || !(temp = ft_strdup(str)))
+			return (NULL);
+		blocks[n++] = temp;
+		ft_strclr(str);
+
+	}
+	blocks[n] = 0;
+	ft_strdel(&str);
+	return (blocks);
 }

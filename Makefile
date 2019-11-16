@@ -12,7 +12,7 @@
 
 NAME = fillit
 
-SRC = main.c validation.c create_trm_struct.c
+SRC = main.c validation.c
 
 OBJ = $(SRC:.c=.o)
 
