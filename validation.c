@@ -6,12 +6,11 @@
 /*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 11:44:18 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/15 16:37:09 by jzaiedma         ###   ########.fr       */
+/*   Updated: 2019/11/18 10:54:16 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 /*
 ** Cheks if tetrimino is right shape an returns 6 or 8.
@@ -83,11 +82,10 @@ int	check_block_chars(char *str)
 
 /*
 ** Checks that rows are valid and creates a string from one block.
-** This function also checks that block max is 26
 */
 
 int	check_lines(char **str, char *line, int fd, int n)
-{	
+{
 	int	count;
 
 	count = 0;
@@ -113,10 +111,10 @@ int	check_lines(char **str, char *line, int fd, int n)
 int	check_file(int fd, char **blocks)
 {
 	char	*line;
-	int	value;
+	int		value;
 	char	*str;
-	char 	*temp;
-	int	n;
+	char	*temp;
+	int		n;
 
 	value = 1;
 	n = 0;
@@ -131,7 +129,6 @@ int	check_file(int fd, char **blocks)
 			return (0);
 		blocks[n++] = temp;
 		ft_strclr(str);
-
 	}
 	blocks[n] = 0;
 	ft_strdel(&str);

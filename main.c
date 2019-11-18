@@ -6,7 +6,7 @@
 /*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:37:58 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/15 09:54:04 by jzaiedma         ###   ########.fr       */
+/*   Updated: 2019/11/18 11:05:37 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ int main(int argc, char **argv)
 		printf("Invalid input");
 	if (argc == 2)
 	{
-		if(!(fd = open(argv[1], O_RDONLY)))
-			return (0);
+		fd = open(argv[1], O_RDONLY);
 		if (check_file(fd, blocks) != 0)
 			printf("\n\nKaikki palikat kunnossa\n\n");
 		else
 			printf("\n\nValidation failed !\n\n");
 		while (blocks[i] != 0)
 		{
-			printf("%d: %s\n", i, blocks[i]);
+			printf("%s\n", blocks[i]);
 			i++;
 		}
+		struct_creator(arr_tetriminos, blocks);
 	}
 	return (0);
 }

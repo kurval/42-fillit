@@ -6,13 +6,13 @@
 #    By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:46:09 by vkurkela          #+#    #+#              #
-#    Updated: 2019/11/15 16:47:08 by vkurkela         ###   ########.fr        #
+#    Updated: 2019/11/18 10:36:23 by vkurkela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRC = main.c validation.c
+SRC = main.c validation.c create_trm_struct.c
 
 OBJ = $(SRC:.c=.o)
 
