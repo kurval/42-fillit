@@ -23,40 +23,73 @@ int	starting_point(char *block)
 	return (i);
 }
 
+int	check_rows(char *block, t_trm *tetriminos)
+{
+	int	rows;
+	int	i;
+	int	hash;
+	int	r;
+
+	rows = 0;
+	hash = 1;
+	i = starting_point(block) + 1;
+	r = 0;
+	while (hash < 4)
+	{
+		if (block[i] == '.')
+			rows++;
+		while (block[i] == '.')
+			i++;
+		hash++, i++;
+		tetriminos->rows[r++] = rows;
+		printf("rows: %d\n", rows);
+	}
+	return (0);
+}
+
+int	check_cols(char *block, t_trm *tetriminos)
+{
+	int	cols;
+	int	i;
+	int	hash;
+	int	count;
+	int	c;
+
+	cols = 0;
+	hash = 1;
+	i = starting_point(block) + 1;
+	count = 4;
+	c = 0;
+	while (hash < 4)
+	{
+		if (block[i] == '.')
+		{
+			while (block[i] == '.')
+				i++, count--;
+			count = 4 + count;
+		}
+		count--, hash++, i++;
+		cols = 4 - count;
+		tetriminos->cols[c++] = cols;
+		printf("cols: %d\n", cols);
+	}
+	return (0);
+}
+
 int	struct_creator(t_trm *tetriminos, char **blocks)
 {
-	int count;
-	int	rows;
-	int	cols;
-	int i;
-	int x;
+	int	i;
+	char	c;
 
 	i = 0;
+	c = 'A';
 	while (blocks[i])
 	{
-		rows = 0;
-		cols = 0;
-		count = 4;
-		x = starting_point(blocks[i]) + 1;
-		printf("******************\n");
-		if (blocks[i][x] == '.')
-			rows++;
-		else
-			cols++;
-		while (blocks[i][x])
-		{
-			while (blocks[i][x] == '#')
-			{
-				x++;
-				printf("rows: %d\n", rows);
-				printf("cols: %d\n", cols);
-				if (blocks[i][x] == '.')
-					rows++;
-				else
-					cols++;
-			}
-			x++;
-		}
+		check_rows(blocks[i], &tetriminos[i]);
+		check_cols(blocks[i], &tetriminos[i]);
+		tetriminos[i].alphabet = c;
+		c = c + 1;
+		free(blocks[i]);
 		i++;
 	}
 	return (0);

@@ -35,6 +35,9 @@ int main(int argc, char **argv)
 			i++;
 		}
 		struct_creator(arr_tetriminos, blocks);
+		printf("tetriminos cols %d\n", arr_tetriminos[0].cols[1]);
+		printf("tetriminos rows  %d\n", arr_tetriminos[3].rows[2]);
+		printf("tetriminos rows  %c\n", arr_tetriminos[3].alphabet);
 	}
 	return (0);
 }
