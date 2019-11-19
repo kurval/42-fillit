@@ -6,7 +6,7 @@
 /*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:37:58 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/18 11:05:37 by vkurkela         ###   ########.fr       */
+/*   Updated: 2019/11/19 14:01:54 by jzaiedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int main(int argc, char **argv)
 		struct_creator(arr_tetriminos, blocks);
 		printf("tetriminos cols %d\n", arr_tetriminos[0].cols[1]);
 		printf("tetriminos rows  %d\n", arr_tetriminos[3].rows[2]);
-		printf("tetriminos rows  %c\n", arr_tetriminos[3].alphabet);
+		printf("tetriminos alphabet  %c\n", arr_tetriminos[2].alphabet);
+		solver(arr_tetriminos);
 	}
 	return (0);
 }

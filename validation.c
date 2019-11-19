@@ -6,7 +6,7 @@
 /*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 11:44:18 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/18 10:54:16 by vkurkela         ###   ########.fr       */
+/*   Updated: 2019/11/19 12:25:57 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** one block.
 */
 
-int	check_block_shape(char *str)
+static int	check_block_shape(char *str)
 {
 	int i;
 	int count;
@@ -51,7 +51,7 @@ int	check_block_shape(char *str)
 ** Checks that block includes right amount of '.' and '#' chars.
 */
 
-int	check_block_chars(char *str)
+static int	check_block_chars(char *str)
 {
 	static int	block_count = 0;
 	int			hashtags;
@@ -84,7 +84,7 @@ int	check_block_chars(char *str)
 ** Checks that rows are valid and creates a string from one block.
 */
 
-int	check_lines(char **str, char *line, int fd, int n)
+static int	check_lines(char **str, char *line, int fd, int n)
 {
 	int	count;
 
@@ -108,7 +108,7 @@ int	check_lines(char **str, char *line, int fd, int n)
 ** string array of valid blocks
 */
 
-int	check_file(int fd, char **blocks)
+int			check_file(int fd, char **blocks)
 {
 	char	*line;
 	int		value;
