@@ -42,7 +42,6 @@ static int	check_rows(char *block, t_trm *tetriminos)
 			i++;
 		i++;
 		tetriminos->rows[r++] = rows;
-		printf("rows: %d\n", rows);
 	}
 	return (0);
 }
@@ -72,7 +71,6 @@ static int	check_cols(char *block, t_trm *tetriminos)
 		count--;
 		i++;
 		tetriminos->cols[c++] = (4 - count);
-		printf("cols: %d\n", (4 - count));
 	}
 	return (0);
 }

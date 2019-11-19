@@ -18,7 +18,7 @@
 # include <string.h>
 # include <fcntl.h>
 
-# define MAX 25
+# define MAX 26
 
 typedef struct	s_trm
 {
@@ -29,10 +29,6 @@ typedef struct	s_trm
 
 int				check_file(int fd, char **blocks);
 int				struct_creator(t_trm *tetriminos, char **blocks);
-int             solver(t_trm *arr_tetriminos);
-int             solver_two(t_trm *arr_tetriminos, int row, int col, char **map, int mapsize);
-void            place_tetrimino(char **map, int x, int y, t_trm tetrimino);
-int             check_placement(char **map, int x, int y, t_trm tetrimino);
-char            **make_bigger_map(int mapsize);
+int             		solver(t_trm *arr_tetriminos);
 
 #endif

@@ -21,23 +21,16 @@ int main(int argc, char **argv)
 
 	i = 0;
 	if (argc != 2)
-		printf("Invalid input");
+		ft_putstr("Invalid input\n");
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
-		if (check_file(fd, blocks) != 0)
-			printf("\n\nKaikki palikat kunnossa\n\n");
-		else
-			printf("\n\nValidation failed !\n\n");
-		while (blocks[i] != 0)
+		if (!(check_file(fd, blocks)))
 		{
-			printf("%s\n", blocks[i]);
-			i++;
+			ft_putstr("ERROR\n");
+			return (0);
 		}
 		struct_creator(arr_tetriminos, blocks);
-		printf("tetriminos cols %d\n", arr_tetriminos[0].cols[1]);
-		printf("tetriminos rows  %d\n", arr_tetriminos[3].rows[2]);
-		printf("tetriminos alphabet  %c\n", arr_tetriminos[2].alphabet);
 		solver(arr_tetriminos);
 	}
 	return (0);
