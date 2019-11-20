@@ -87,9 +87,9 @@ static int	solver_two(t_trm *arr_tetriminos, int row, int col, char **map, int m
 	n = 0;
 	while (arr_tetriminos[n].alphabet)
 	{
-		if ((col == mapsize - 1) && (row == mapsize - 1))
+		if ((col > mapsize - 1) && (row > mapsize - 1))
 			return (0);
-		if (col == mapsize - 1)
+		if (col > mapsize - 1)
 		{
 			col = 0;
 			row = row + 1;
@@ -110,7 +110,7 @@ static int	solver_two(t_trm *arr_tetriminos, int row, int col, char **map, int m
 					mapi++;
 				}
 				printf("\n");
-				solver_two(arr_tetriminos + 1, row, col + 1, map, mapsize);
+				solver_two(arr_tetriminos + 1, 0, 0, map, mapsize);
 				return (0);
 			}
 			else
