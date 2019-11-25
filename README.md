@@ -20,7 +20,7 @@ We split this project into three parts:
 Run **make** from terminal to and use following command **./fillit [source file]**.
 ## EXAMPLE
 
-example.txt:
+tetriminos.txt:
 
 ```
 ....
