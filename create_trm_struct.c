@@ -6,12 +6,11 @@
 /*   By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 09:31:05 by vkurkela          #+#    #+#             */
-/*   Updated: 2019/11/20 14:33:20 by vkurkela         ###   ########.fr       */
+/*   Updated: 2019/11/22 09:38:05 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 static int	starting_point(char *block)
 {

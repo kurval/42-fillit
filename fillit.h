@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 11:46:51 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/20 18:17:13 by vkurkela         ###   ########.fr       */
+/*   Created: 2019/11/25 14:45:01 by vkurkela          #+#    #+#             */
+/*   Updated: 2019/11/25 14:45:05 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FILLIT_H
 
 # include "./includes/libft.h"
-# include <stdio.h>
-# include <string.h>
 # include <fcntl.h>
 
 # define MAX 27
@@ -28,7 +26,9 @@ typedef struct	s_trm
 }				t_trm;
 
 int				check_file(int fd, char **blocks);
+char			**make_bigger_map(int mapsize, char **map);
 int				struct_creator(t_trm *tetriminos, char **blocks);
-int             solver(t_trm *arr_tetriminos);
+char			**solver(t_trm *arr_tetriminos);
+void			print_map(char **map);
 
 #endif

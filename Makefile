@@ -6,13 +6,13 @@
 #    By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:46:09 by vkurkela          #+#    #+#              #
-#    Updated: 2019/11/19 12:40:10 by jzaiedma         ###   ########.fr        #
+#    Updated: 2019/11/22 15:46:25 by vkurkela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRC = main.c validation.c create_trm_struct.c solver.c
+SRC = main.c validation.c create_trm_struct.c solver.c helper_funtions.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -26,13 +26,9 @@ FLAGS = -Wall -Wextra -Werror -I$(HEADERS)
 
 all: $(NAME)
 
-%.o:%.c
-	$(CC) $(CFLAGS) -o $@ -c $<
-
-$(LIBFT):
+$(NAME): 
 	@${MAKE} -C includes
-
-$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(FLAGS) -c $(SRC)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:

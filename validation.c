@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 11:44:18 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/19 12:25:57 by vkurkela         ###   ########.fr       */
+/*   Created: 2019/11/25 14:43:54 by vkurkela          #+#    #+#             */
+/*   Updated: 2019/11/25 14:45:46 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /*
-** Cheks if tetrimino is right shape an returns 6 or 8.
+** Cheks if tetrimino is right shape and returns 6 or 8.
 ** First if statement checks if # connects another # above
 ** second checks connection on the right side
 ** third one checks connection down
@@ -86,7 +86,8 @@ static int	check_block_chars(char *str)
 
 static int	check_lines(char **str, char *line, int fd, int n)
 {
-	int	count;
+	int		count;
+	char	*temp;
 
 	count = 0;
 	if (n == 26)
@@ -97,8 +98,11 @@ static int	check_lines(char **str, char *line, int fd, int n)
 			return (0);
 		if (ft_strlen(line) != 4)
 			return (0);
+		temp = *str;
 		if (!(*str = ft_strjoin(*str, line)))
 			return (0);
+		free(line);
+		free(temp);
 	}
 	return (1);
 }
@@ -125,10 +129,12 @@ int			check_file(int fd, char **blocks)
 		if (check_lines(&str, line, fd, n) != 1)
 			return (0);
 		value = get_next_line(fd, &line);
-		if (!(ft_strlen(line) == 0) || check_block_chars(str) == 0 || !(temp = ft_strdup(str)))
+		if (!(ft_strlen(line) == 0) || check_block_chars(str) == 0
+				|| !(temp = ft_strdup(str)))
 			return (0);
 		blocks[n++] = temp;
 		ft_strclr(str);
+		free(line);
 	}
 	blocks[n] = 0;
 	ft_strdel(&str);
