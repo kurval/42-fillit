@@ -11,12 +11,13 @@ the smallest possible square!
 
 We split this project into three parts:
 
-1. **Tetriminos validation** - to check that each tetriminos block is valid and create array of strings containing every block. If blocks are valid we continue to section two. Else the program returns error message.
+1. **Tetriminos validation** - to check that each tetriminos block is valid and create array of strings containing every block. If blocks are valid we can move to section two. Else the program returns error message.
 2. **Creating array of structs** - which we need in section three. Single struct contains coordinations of tetrimino's '#' -characters. Along with coordinations we assign alphabet to identify each tetrimino starting with 'A'.
 3. **Solving the smallest square** - in this section we used recursive backtracking method to solve this puzzle. In this part we can use coordinations of previous part to check if the place is empty in our map.
 
 ## Compiling and Usage
 
-Run **make** from terminal and use following command **./fillit [source file]**. This repository contains tetriminos.txt which you can use as a source file.
-
+Run **make** from terminal and use following command **./fillit [source file]**. This repository contains tetriminos.txt.
 ## EXAMPLE
+
+![example of execution](https://github.com/kurval/fillit/blob/master/screenshot.png)
