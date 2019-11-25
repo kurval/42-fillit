@@ -16,7 +16,7 @@ We split this project into three parts:
 
 ## Compiling and Usage
 
-Run **make** from terminal to and use following command **./fillit [source file]**.
+Run **make** from terminal and use following command **./fillit [source file]**.
 ## EXAMPLE
 
 tetriminos.txt:
