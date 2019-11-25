@@ -12,14 +12,6 @@
 
 #include "get_next_line.h"
 
-/*
-** This function checks if it finds linebreak and stores
-** the line ending '\n' to *line variable and sets *s
-** variable to right location. If there is no linebreak
-** it copies the end and frees the *s variable. If it reach
-** the end of a file we can free the memory of *s beacause.
-*/
-
 static int	get_line(char **s, char **line)
 {
 	int		len;
@@ -30,25 +22,22 @@ static int	get_line(char **s, char **line)
 		len++;
 	if ((*s)[len] == '\n')
 	{
-		*line = ft_strsub(*s, 0, len);
-		temp = ft_strdup(&((*s)[len + 1]));
+		if (!(*line = ft_strsub(*s, 0, len)))
+			return (-1);
+		if (!(temp = ft_strdup(&((*s)[len + 1]))))
+			return (-1);
 		ft_strdel(s);
 		*s = temp;
 	}
 	else
 	{
-		*line = ft_strdup(*s);
+		if (!(*line = ft_strdup(*s)))
+			return (-1);
 		ft_strdel(s);
 		return (0);
 	}
 	return (1);
 }
-
-/*
-** Returns a value 1 if line has been read,
-** 0 when the reading has been completed or
-** -1 if an error has happened respectively.
-*/
 
 static int	ret_value(char **s, char **line, int ret, int fd)
 {
@@ -59,15 +48,6 @@ static int	ret_value(char **s, char **line, int ret, int fd)
 	else
 		return (get_line(&s[fd], line));
 }
-
-/*
-** Gnl checks if static variable is empty and then allocates
-** memory for it using buff and see if it contains line break
-** character. Next iterations will store the data from fd and
-** stores it after the previous data. Then it  must free
-** the memory and copy temp andress so it won't loose the data.
-** If line break occurs then function breaks and calls next function.
-*/
 
 int			get_next_line(const int fd, char **line)
 {
@@ -85,7 +65,8 @@ int			get_next_line(const int fd, char **line)
 			s[fd] = ft_strdup(buff);
 		else
 		{
-			temp = ft_strjoin(s[fd], buff);
+			if (!(temp = ft_strjoin(s[fd], buff)))
+				return (-1);
 			free(s[fd]);
 			s[fd] = temp;
 		}
