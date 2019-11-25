@@ -1,6 +1,5 @@
 # FILLIT
 
-This was our first group project at Hive Helsinki
 ![tetris puzzle](https://cdn.pixabay.com/photo/2016/09/18/20/39/cube-1678974_960_720.png)
 
 ## GOAL
