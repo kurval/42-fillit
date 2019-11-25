@@ -7,7 +7,7 @@ This was our first group project at Hive Helsinki
 
 Our goal was to create a program which takes only one parameter (source file) containing a list of Tetriminos
 to assemble. Program needs to arrange every Tetriminos with each others in order to make
-the smallest possible square!
+the ***smallest possible square***!
 
 We split this project into three parts:
 
@@ -17,7 +17,39 @@ We split this project into three parts:
 
 ## Compiling and Usage
 
-Run **make** from terminal and use following command **./fillit [source file]**. This repository contains tetriminos.txt.
+Run **make** from terminal to and use following command **./fillit [source file]**.
 ## EXAMPLE
 
-![example of execution](https://github.com/kurval/fillit/blob/master/screenshot.png)
+example.txt:
+
+```
+....
+##..
+.#..
+.#..
+
+....
+####
+....
+....
+
+#...
+###.
+....
+....
+
+....
+##..
+.##.
+....
+```
+execution:
+```
+~ make
+~ ./fillit tetriminos.txt 
+
+DDAA
+CDDA
+CCCA
+BBBB
+```
