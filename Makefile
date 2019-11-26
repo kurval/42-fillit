@@ -12,7 +12,7 @@
 
 NAME = fillit
 
-SRC = main.c validation.c create_trm_struct.c solver.c helper_funtions.c
+SRC = main.c validation.c create_arr_structs.c solver.c helper_funtions.c
 
 OBJ = $(SRC:.c=.o)
 

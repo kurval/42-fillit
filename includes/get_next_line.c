@@ -58,6 +58,7 @@ int			get_next_line(const int fd, char **line)
 
 	if (fd < 0 || line == NULL)
 		return (-1);
+	*line = NULL;
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
 		buff[ret] = '\0';
