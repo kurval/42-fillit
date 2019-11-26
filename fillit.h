@@ -25,7 +25,7 @@ typedef struct	s_trm
 	char	alphabet;
 }				t_trm;
 
-int				check_file(int fd, char **blocks);
+int				validate_file(int fd, char **blocks);
 char			**make_bigger_map(int mapsize, char **map);
 int				struct_creator(t_trm *tetriminos, char **blocks);
 char			**solver(t_trm *arr_tetriminos);

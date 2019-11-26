@@ -112,7 +112,7 @@ static int	check_lines(char **str, char *line, int fd, int n)
 ** string array of valid blocks
 */
 
-int			check_file(int fd, char **blocks)
+int			validate_file(int fd, char **blocks)
 {
 	char	*line;
 	int		value;

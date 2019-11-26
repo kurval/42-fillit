@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
-		if (fd == -1 || !(check_file(fd, blocks)))
+		if (fd == -1 || !(validate_file(fd, blocks)))
 		{
 			ft_putstr("error\n");
 			return (0);
