@@ -13,7 +13,7 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "./includes/libft.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 
 # define MAX 27

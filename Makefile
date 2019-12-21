@@ -12,13 +12,15 @@
 
 NAME = fillit
 
-SRC = main.c validation.c create_arr_structs.c solver.c helper_funtions.c
+SRC = sources/main.c sources/validation.c sources/create_arr_structs.c \
+	sources/solver.c sources/helper_funtions.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = main.o validation.o create_arr_structs.o \
+	solver.o helper_funtions.o
 
-HEADERS = fillit.h
+HEADERS = sources/fillit.h
 
-LIBFT = includes/libft.a
+LIBFT = libft/libft.a
 
 CC = gcc
 
@@ -27,17 +29,17 @@ FLAGS = -Wall -Wextra -Werror -I$(HEADERS)
 all: $(NAME)
 
 $(NAME): 
-	@${MAKE} -C includes
+	@${MAKE} -C libft
 	$(CC) $(FLAGS) -c $(SRC)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:
 	/bin/rm -f $(OBJ)
-	@${MAKE} -C includes clean
+	@${MAKE} -C libft clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	@${MAKE} -C includes fclean
+	@${MAKE} -C libft fclean
 
 re: fclean all
 
