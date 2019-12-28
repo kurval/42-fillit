@@ -2,7 +2,7 @@
 
 ![tetris puzzle](https://cdn.pixabay.com/photo/2016/09/18/20/39/cube-1678974_960_720.png)
 
-## GOAL
+## Goal
 
 Our goal was to create a program which takes only one parameter (source file) containing a list of Tetriminos
 to assemble. Program needs to arrange every Tetriminos with each others in order to make
@@ -17,7 +17,7 @@ We split this project into three parts:
 ## Compiling and Usage
 
 Run **make** from terminal and use following command **./fillit [source file]**.
-## EXAMPLE
+## Example
 
 tetriminos.txt:
 
