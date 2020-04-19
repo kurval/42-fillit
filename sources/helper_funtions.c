@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 15:12:50 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/04/19 09:56:40 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/04/19 12:07:32 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	print_colors(char plc)
 	place == 2 ? printf(YEL "%c" EOC, plc) : 0;
 	place == 3 ? printf(MAG "%c" EOC, plc) : 0;
 	place == 4 ? printf(CYA "%c" EOC, plc) : 0;
-	place == 5 ? printf(BLU "%c" EOC, plc) : 0;
 }
 
 void	print_status(char **map)
