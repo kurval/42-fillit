@@ -14,7 +14,7 @@ We split this project into three parts:
 
 1. **Tetriminos validation** - to check that each tetriminos block is valid and create array of strings containing every block. If blocks are valid we can move to section two. Else the program returns error message.
 2. **Creating array of structs** - which we need in section three. Single struct containing coordinations of tetrimino's '#' -characters. Along with coordinations we assign alphabet to identify each tetrimino piece starting with 'A'.
-3. **Solving the smallest square** - in this section we used recursive backtracking method to solve this puzzle. In this part we can use coordinations from previous part to check if the current place is empty in our map. If place is not empty we are going to remove current piece and place it to next spot on our map. After we have tried first peace to every spot and if there is no solution we are going resize our map bigger and continue as long as we find the solutin (smallest square).
+3. **Solving the smallest square** - in this section we used recursive backtracking method to solve this puzzle. In this part we can use coordinations from previous part to check if the current place is empty in our map. If place is not empty we are going to remove current piece and place it to next spot on our map. After we have tried first peace to every spot and if there is no solution we are going resize our map bigger and continue as long as we find the solution (smallest square).
 
 ## Compiling and Usage
 
