@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:44:17 by vkurkela          #+#    #+#             */
-/*   Updated: 2019/11/25 14:44:21 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/04/19 09:23:58 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
-static int	check_plc(char **map, int x, int y, t_trm tetrimino)
+int			check_plc(char **map, int x, int y, t_trm tetrimino)
 {
 	int mapsize;
 	int i;
@@ -35,7 +35,7 @@ static int	check_plc(char **map, int x, int y, t_trm tetrimino)
 	return (1);
 }
 
-static void	place_tetrimino(char **map, int x, int y, t_trm tetrimino)
+void		place_tetrimino(char **map, int x, int y, t_trm tetrimino)
 {
 	int i;
 
@@ -46,9 +46,10 @@ static void	place_tetrimino(char **map, int x, int y, t_trm tetrimino)
 		map[x + tetrimino.rows[i]][y + tetrimino.cols[i]] = tetrimino.alphabet;
 		i++;
 	}
+	print_status(map);
 }
 
-static void	remove_tetrimino(char **map, int x, int y, t_trm tetrimino)
+void		remove_tetrimino(char **map, int x, int y, t_trm tetrimino)
 {
 	int i;
 
@@ -61,7 +62,7 @@ static void	remove_tetrimino(char **map, int x, int y, t_trm tetrimino)
 	}
 }
 
-static int	solver_two(t_trm *arr_tetriminos, char **map, int mapsize)
+int			back_tracking(t_trm *arr_tetriminos, char **map, int mapsize)
 {
 	int x;
 	int y;
@@ -77,7 +78,7 @@ static int	solver_two(t_trm *arr_tetriminos, char **map, int mapsize)
 			if (map[x][y] == '.' && check_plc(map, x, y, *arr_tetriminos) == 1)
 			{
 				place_tetrimino(map, x, y, *arr_tetriminos);
-				if (solver_two(arr_tetriminos + 1, map, mapsize))
+				if (back_tracking(arr_tetriminos + 1, map, mapsize))
 					return (1);
 				else
 					remove_tetrimino(map, x, y, *arr_tetriminos);
@@ -104,7 +105,7 @@ char		**solver(t_trm *arr_tetriminos)
 	map = make_bigger_map(mapsize, map);
 	while (solver_result == 0)
 	{
-		solver_result = solver_two(arr_tetriminos, map, mapsize);
+		solver_result = back_tracking(arr_tetriminos, map, mapsize);
 		if (solver_result == 0)
 		{
 			mapsize++;

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:43:54 by vkurkela          #+#    #+#             */
-/*   Updated: 2019/11/25 14:45:46 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/04/19 09:00:57 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 /*
 ** Cheks if tetrimino is right shape and returns 6 or 8.

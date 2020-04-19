@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_trm_struct.c                                :+:      :+:    :+:   */
+/*   create_arr_structs.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 09:31:05 by vkurkela          #+#    #+#             */
-/*   Updated: 2019/11/22 09:38:05 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/04/19 08:58:48 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 static int	starting_point(char *block)
 {

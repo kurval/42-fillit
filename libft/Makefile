@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 09:34:51 by vkurkela          #+#    #+#              #
-#    Updated: 2019/11/13 16:56:22 by vkurkela         ###   ########.fr        #
+#    Updated: 2020/04/19 09:26:55 by vkurkela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,14 @@ CC = gcc
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) -c $(SRC)
-	ar rc $(NAME) $(OBJECTS)
+	@$(CC) $(FLAGS) -c $(SRC)
+	@ar rc $(NAME) $(OBJECTS)
 
 clean:
-	/bin/rm -f $(OBJECTS)
+	@/bin/rm -f $(OBJECTS)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
 

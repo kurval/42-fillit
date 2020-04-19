@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jzaiedma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 14:37:58 by jzaiedma          #+#    #+#             */
-/*   Updated: 2019/11/25 14:46:24 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/04/19 09:00:50 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 int	main(int argc, char **argv)
 {
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 		struct_creator(arr_tetriminos, blocks);
-		print_map(solver(arr_tetriminos));
+		free_map(solver(arr_tetriminos));
 		close(fd);
 	}
 	return (0);

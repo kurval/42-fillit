@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkurkela <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/13 11:46:09 by vkurkela          #+#    #+#              #
-#    Updated: 2019/11/22 15:46:25 by vkurkela         ###   ########.fr        #
+#    Updated: 2020/04/19 09:33:20 by vkurkela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ SRC = sources/main.c sources/validation.c sources/create_arr_structs.c \
 OBJ = main.o validation.o create_arr_structs.o \
 	solver.o helper_funtions.o
 
-HEADERS = sources/fillit.h
+GREEN = \033[1;32m
+RED = \033[1;31m
+YEL = \033[1;33m
+WHT = \033[1;37m
+EOC = \033[1;0m
+
+HEADERS = includes/fillit.h
 
 LIBFT = libft/libft.a
 
@@ -28,18 +34,26 @@ FLAGS = -Wall -Wextra -Werror -I$(HEADERS)
 
 all: $(NAME)
 
-$(NAME): 
-	@${MAKE} -C libft
-	$(CC) $(FLAGS) -c $(SRC)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+$(NAME):
+	@echo "$(WHT)Compiling libft...$(EOC)"
+	@make -C libft
+	@echo "$(GREEN)Libft done.$(EOC)"
+	@echo "$(WHT)Compiling Fillit...$(EOC)"
+	@$(CC) $(FLAGS) -c $(SRC)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	@echo "$(GREEN)Fillit build completed.$(EOC)"
 
 clean:
-	/bin/rm -f $(OBJ)
-	@${MAKE} -C libft clean
+	@echo "$(WHT)Removing o-files...$(EOC)"
+	@/bin/rm -f $(OBJ)
+	@make -C libft clean
+	@echo "$(GREEN)Clean done.$(EOC)"
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	@${MAKE} -C libft fclean
+	@echo "$(WHT)Removing object- and binary -files...$(EOC)"
+	@/bin/rm -f $(NAME)
+	@make -C libft fclean
+	@echo "$(GREEN)Fclean done.$(EOC)"
 
 re: fclean all
 
