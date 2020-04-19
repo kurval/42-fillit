@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 15:12:50 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/04/19 12:07:32 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/04/19 13:22:48 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 static void	print_colors(char plc)
 {
-	int place;
+	int		place;
+	char	dot;
 
+	dot = '.';
 	place = (int)plc % 5;
-	if (plc == '.')
+	if (plc == dot)
 	{
-		printf(WHT "." EOC);
+		printf(WHT "%4c" EOC, dot);
 		return ;
 	}
-	place == 0 ? printf(RED "%c" EOC, plc) : 0;
-	place == 1 ? printf(GRE "%c" EOC, plc) : 0;
-	place == 2 ? printf(YEL "%c" EOC, plc) : 0;
-	place == 3 ? printf(MAG "%c" EOC, plc) : 0;
-	place == 4 ? printf(CYA "%c" EOC, plc) : 0;
+	place == 0 ? printf(RED "%4c" EOC, plc) : 0;
+	place == 1 ? printf(GRE "%4c" EOC, plc) : 0;
+	place == 2 ? printf(YEL "%4c" EOC, plc) : 0;
+	place == 3 ? printf(MAG "%4c" EOC, plc) : 0;
+	place == 4 ? printf(CYA "%4c" EOC, plc) : 0;
 }
 
 void	print_status(char **map)
@@ -44,10 +46,10 @@ void	print_status(char **map)
 			print_colors(map[i][j]);
 			j++;
 		}
-		printf("\n");
+		printf("\n\n");
 		i++;
 	}
-	usleep(17000);
+	usleep(20000);
 }
 
 char	**make_bigger_map(int mapsize, char **map)
