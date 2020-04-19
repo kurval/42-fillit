@@ -2,7 +2,7 @@
 
 ![tetris puzzle](https://cdn.pixabay.com/photo/2016/09/18/20/39/cube-1678974_960_720.png)
 
-![fillit_gif](https://j.gifs.com/lxg7k1.gif)  
+![fillit_gif](https://j.gifs.com/4Q3L2J.gif)  
 
 ## Goal
 
