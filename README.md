@@ -50,6 +50,8 @@ execution:
 ~ make
 ~ ./fillit tetriminos.txt 
 
+OR you can just paste this on your terminal: git clone https://github.com/kurval/42-fillit.git fillit && cd fillit && make && ./fillit tetriminos.txt
+
 DDAA
 CDDA
 CCCA
